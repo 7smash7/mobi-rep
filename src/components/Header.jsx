@@ -18,16 +18,16 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container header-content">
-        <Link to="/" className="logo-link">
-          <img src={logo} alt="Mobirep" className="logo-img" />
+        <Link to="/" className="logo">
+          Mobirep
         </Link>
 
         <nav className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-          <NavLink to="/" onClick={() => setMobileMenuOpen(false)}>Accueil</NavLink>
-          <NavLink to="/repair" onClick={() => setMobileMenuOpen(false)}>Réparation</NavLink>
-          <NavLink to="/shop" onClick={() => setMobileMenuOpen(false)}>Boutique</NavLink>
-          <NavLink to="/locate" onClick={() => setMobileMenuOpen(false)}>Trouvez-nous</NavLink>
-          <NavLink to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
+          <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setMobileMenuOpen(false)}>Accueil</NavLink>
+          <NavLink to="/repair" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setMobileMenuOpen(false)}>Réparation</NavLink>
+          <NavLink to="/shop" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setMobileMenuOpen(false)}>Boutique</NavLink>
+          <NavLink to="/locate" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setMobileMenuOpen(false)}>Trouvez-nous</NavLink>
+          <NavLink to="/contact" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
         </nav>
 
         <button className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>

@@ -1,0 +1,10 @@
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    /* Adjust based on logo aspect ratio */
+    width: auto;
+}

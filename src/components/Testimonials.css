@@ -1,0 +1,73 @@
+@import './TestimonialsNav.css';
+
+.testimonials-section {
+    background: white;
+    /* Clean background for glass cards to pop against if moved, but here white on white needs contrast? 
+                        Actually user asked for "sections alternées en Gris Givré". 
+                        Hero: White/Radial.
+                        Bento: Grey (bg-subtle).
+                        Stats: White.
+                        Testimonials: Grey (bg-subtle)? Or image background?
+                        Let's make Testimonials interesting with a blurred gradient background or just grey.
+                        Let's use Grey.
+                     */
+    background-color: var(--color-bg-subtle);
+    overflow: hidden;
+}
+
+.testimonials-scroll {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 40px 24px;
+    /* Padding for shadow */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+}
+
+.testimonials-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.testimonial-card {
+    min-width: 320px;
+    max-width: 320px;
+    scroll-snap-align: center;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.5);
+    /* Semi transparent for glass */
+    /* backdrop-filter handled by glass-card utility */
+}
+
+.t-rating {
+    margin-bottom: 16px;
+    display: flex;
+}
+
+.t-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-main);
+    margin-bottom: 24px;
+    flex: 1;
+    font-style: italic;
+}
+
+.t-footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: 16px;
+}
+
+.t-name {
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.t-device {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}

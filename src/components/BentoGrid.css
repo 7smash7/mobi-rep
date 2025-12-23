@@ -1,0 +1,144 @@
+@import './BentoGridImage.css';
+
+.bg-subtle {
+    background-color: var(--color-bg-subtle);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 48px;
+    letter-spacing: -0.02em;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 280px);
+    /* Fixed height rows for bento feel */
+    gap: 24px;
+}
+
+/* Layout Assignments */
+.repair-card {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    /* Large vertical card taking 2 cols in width? No, user said 3 cards of DIFFERENT sizes. 
+                      Let's make Repair big (2x2), Shop medium (1x2), Accessories small/wide?
+                      Actually, a common bento is:
+                      [ Repair (2x2) ] [ Shop (1x1) ]
+                                       [ Acc  (1x1) ]
+                      Total 3 cols.
+                   */
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.shop-card {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+.accessories-card {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+.bento-card {
+    position: relative;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Text at bottom often looks nice */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    background: white;
+    /* Fallback */
+}
+
+.bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    /* Stronger shadow on hover */
+}
+
+.bento-card .card-content {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.bento-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.bento-card p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    background: #f0f0f0;
+}
+
+.icon-wrapper.blue {
+    background: #e8f2ff;
+    color: #0071E3;
+}
+
+.icon-wrapper.green {
+    background: #eafdec;
+    color: #1c7e2f;
+}
+
+.icon-wrapper.purple {
+    background: #f4ecff;
+    color: #8e44ad;
+}
+
+.card-link {
+    margin-top: 8px;
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #0071E3;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .repair-card,
+    .shop-card,
+    .accessories-card {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 300px;
+    }
+}
